@@ -5,5 +5,10 @@ Rails.application.routes.draw do
     member do
       get 'profile'
       get 'matches'
+    end
   end
+  
+  get 'auth/:provider/callback', to: 'sessions#create'
+  match 'sign_out', to: 'sessions#destroy, via: :delete'
+  
 end
